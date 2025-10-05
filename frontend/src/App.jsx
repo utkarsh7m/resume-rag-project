@@ -1,7 +1,7 @@
 // File: /frontend/src/App.jsx
 
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import HomePage from './pages/HomePage';
 import ResultsPage from './pages/ResultsPage';
 import JobsPage from './pages/JobsPage';
