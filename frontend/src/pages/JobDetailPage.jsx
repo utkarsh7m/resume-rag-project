@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import styles from './ResultsPage.module.css'; // Reusing styles
+import styles from './ResultsPage.module.css';
 import PageHeader from '../components/PageHeader';
 
 function JobDetailPage() {
@@ -14,7 +14,8 @@ function JobDetailPage() {
     setIsLoading(true);
     const fetchJob = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:8000/api/jobs/${jobId}`);
+        // URL UPDATED FOR PRODUCTION
+        const response = await fetch(`https://acceptable-eagerness-production-aad4.up.railway.app/api/jobs/${jobId}`);
         const data = await response.json();
         setJobDescription(data.description);
       } catch (error) {
@@ -30,7 +31,8 @@ function JobDetailPage() {
     setIsMatching(true);
     setMatchResults([]);
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/jobs/${jobId}/match`, {
+      // URL UPDATED FOR PRODUCTION
+      const response = await fetch(`https://acceptable-eagerness-production-aad4.up.railway.app/api/jobs/${jobId}/match`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ top_n: 3 }),
