@@ -1,0 +1,104 @@
+/* File: /frontend/src/App.css */
+
+:root {
+  --background-color: #111015;
+  --surface-color: #1d1c20;
+  --card-color: #2a2a2f;
+  --primary-color: #8a42f4;
+  --primary-variant-color: #3700b3;
+  --secondary-color: #03dac6;
+  --text-primary: #e1e1e6;
+  --text-secondary: #a8a8b3;
+  --border-color: #323238;
+  --success-color: #03dac6;
+  --error-color: #cf6679;
+}
+
+#root {
+  /* The root element is now just a full-width container */
+  width: 100%;
+}
+
+body {
+  color: var(--text-primary);
+  background-color: var(--background-color);
+  background-image: radial-gradient(ellipse at bottom, #3700b340 0%, var(--background-color) 70%);
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+/* The .App class now controls the main layout */
+.App {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.App-header {
+  color: var(--text-primary);
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box; /* Crucial for correct width calculation */
+  padding: 1rem 2rem;
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+.logo-link, .logo-link:hover {
+  text-decoration: none;
+  color: var(--text-primary);
+}
+.main-nav h1 {
+  margin: 0;
+  font-size: 1.8em;
+}
+.nav-links {
+  display: flex;
+  gap: 0.5rem;
+}
+.nav-link {
+  font-size: 1em;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: background-color 0.2s, color 0.2s;
+}
+.nav-link:hover {
+  background-color: var(--card-color);
+  color: var(--primary-color);
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.8em 1.5em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--primary-color);
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+button:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(138, 66, 244, 0.3);
+}
+button:disabled {
+  background-color: #323238;
+  cursor: not-allowed;
+  color: #777;
+  transform: none;
+  box-shadow: none;
+}

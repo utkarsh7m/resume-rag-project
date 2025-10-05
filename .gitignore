@@ -1,0 +1,36 @@
+# --- General ---
+# Secret environment variables
+.env
+/backend/.env
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE/Editor folders
+.vscode/
+.idea/
+
+# --- Backend (Python) ---
+# Virtual environment folder
+/backend/venv/
+
+# Python bytecode and cache
+__pycache__/
+*.pyc
+
+# Local databases and uploads
+/backend/uploads/
+/backend/chroma_db/
+
+# --- Frontend (Node.js / React) ---
+# Dependency folder (very large)
+/frontend/node_modules/
+
+# Production build output
+/frontend/dist/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

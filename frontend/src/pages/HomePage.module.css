@@ -1,0 +1,79 @@
+/* File: /frontend/src/pages/HomePage.module.css */
+
+.hero {
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  text-align: center; /* This is the line that centers the text */
+}
+.hero h2 {
+  font-size: 2.5em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+.hero p {
+  font-size: 1.1em;
+  color: var(--text-secondary);
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+/* NEW: Flexbox container for the cards */
+.cardContainer {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start; /* Aligns cards to the top */
+}
+
+.card {
+  background-color: var(--background-color); /* Darker background */
+  border: 1px solid var(--border-color);    /* Lighter border */
+  border-radius: 12px;
+  padding: 2em;
+  text-align: left;
+  flex: 1;
+  transition: all 0.2s ease-in-out;
+}
+.card:hover {
+  border-color: var(--primary-color); /* Border lights up on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.card h2 {
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-top: 0;
+}
+.card p {
+  color: var(--text-secondary);
+  min-height: 40px; /* Ensures cards have a similar height */
+}
+
+.message {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border-radius: 6px;
+  color: var(--text-secondary);
+  background-color: #333;
+  border: 1px solid #555;
+}
+
+.inputGroup {
+  display: flex;
+  width: 100%;
+  gap: 0.75rem;
+}
+
+.queryInput {
+  flex-grow: 1;
+  padding: 0.8em 1.2em;
+  font-size: 1em;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  transition: border-color 0.2s;
+}
+.queryInput:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}

@@ -1,0 +1,93 @@
+/* File: /frontend/src/pages/ResultsPage.module.css */
+
+/* The main container for the entire results section */
+.resultsCard {
+  background-color: var(--background-color); /* Matches the homepage cards */
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 2em;
+  text-align: left;
+  transition: border-color 0.2s ease-in-out;
+}
+.resultsCard:hover {
+  border-color: var(--primary-color); /* Border lights up on hover */
+}
+
+
+/* The "← Back" link */
+.backLink {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+}
+.backLink:hover {
+  color: var(--primary-color);
+}
+
+/* Container for an individual result. Now just a section, not a box. */
+.snippet {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border-color); /* Separator line */
+}
+/* Remove the border from the very last item */
+.snippet:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+/* The header for each snippet (Rank, Source) */
+.snippetHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* Removed background and border */
+  padding: 0 0 0.75rem 0;
+}
+.snippetHeader h4 {
+  margin: 0;
+  font-size: 1.1em;
+  color: var(--text-primary);
+}
+.score {
+  font-weight: normal;
+  color: var(--text-secondary);
+  font-size: 0.9em;
+}
+.snippetHeader cite {
+  font-style: normal;
+  font-size: 0.9em;
+  color: var(--text-secondary);
+}
+
+/* The content area that looks like a code block */
+.snippetContent {
+  padding: 1.5rem;
+  margin: 0;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.95em;
+  color: #d1d5db;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: var(--surface-color); /* Slightly lighter for contrast */
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+}
+
+/* The style for the highlighted words */
+.highlight {
+  background-color: rgba(138, 66, 244, 0.4);
+  color: #f0f0f0;
+  padding: 2px 0;
+  border-radius: 3px;
+}
+.infoBox {
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: rgba(138, 66, 244, 0.1); /* Primary color with transparency */
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  font-size: 0.9em;
+  color: var(--text-secondary);
+}
