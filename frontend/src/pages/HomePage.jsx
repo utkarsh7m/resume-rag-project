@@ -1,24 +1,22 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid'; // CHANGED: Added for idempotency
+import { v4 as uuidv4 } from 'uuid';
 import styles from './HomePage.module.css';
 
 function HomePage() {
   const navigate = useNavigate();
 
-  // CHANGED: State now handles multiple files
-  const [selectedFiles, setSelectedFiles] = useState(null); 
+  const [selectedFiles, setSelectedFiles] = useState(null);
   const [uploadMessage, setUploadMessage] = useState('');
   const [query, setQuery] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [fileInputKey, setFileInputKey] = useState(Date.now());
 
-  // CHANGED: Now handles a list of files, not just one
   const handleFileChange = (event) => {
     setSelectedFiles(event.target.files);
     setUploadMessage('');
   };
 
-  // CHANGED: Updated to handle multiple files and send Idempotency-Key
   const handleUpload = async () => {
     if (!selectedFiles || selectedFiles.length === 0) {
       setUploadMessage('Please select one or more files first.');
@@ -32,11 +30,12 @@ function HomePage() {
     for (const file of selectedFiles) {
       const formData = new FormData();
       formData.append('file', file);
-      const singleFileIdempotencyKey = uuidv4(); // Generate unique key per file
+      const singleFileIdempotencyKey = uuidv4();
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/resumes', { 
+        // URL UPDATED FOR PRODUCTION
+        const response = await fetch('https://acceptable-eagerness-production-aad4.up.railway.app/api/resumes', { 
           method: 'POST', 
-          headers: { 'Idempotency-Key': singleFileIdempotencyKey }, // Send key
+          headers: { 'Idempotency-Key': singleFileIdempotencyKey },
           body: formData 
         });
         if (!response.ok) throw new Error(`Upload failed for ${file.name}`);
@@ -54,8 +53,7 @@ function HomePage() {
     }
 
     setSelectedFiles(null);
-    // This line is needed to reset the file input visually
-    document.querySelector('input[type="file"]').value = '';
+    setFileInputKey(Date.now());
   };
 
   const handleQueryChange = (event) => {
@@ -70,7 +68,8 @@ function HomePage() {
     setIsLoading(true);
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/ask', {
+      // URL UPDATED FOR PRODUCTION
+      const response = await fetch('https://acceptable-eagerness-production-aad4.up.railway.app/api/ask', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: query }),
@@ -98,8 +97,13 @@ function HomePage() {
         <div className={styles.card}>
           <h2>1. Upload Resumes</h2>
           <p>Add one or more PDFs to the knowledge base.</p>
-          {/* CHANGED: Added 'multiple' to the input */}
-          <input type="file" accept=".pdf,.zip" onChange={handleFileChange} multiple />
+          <input 
+            key={fileInputKey}
+            type="file" 
+            accept=".pdf,.zip" 
+            onChange={handleFileChange} 
+            multiple 
+          />
           <button onClick={handleUpload} disabled={!selectedFiles}>
             Upload and Process
           </button>
