@@ -9,15 +9,6 @@
 
 ---
 
-## 🚀 Live Demo & Screenshots
-
-**[➡️ View the Live Application Here](https://[YOUR_VERCEL_DEPLOYMENT_URL])**
-
-![ResumeRAG App Demo GIF](https://[URL_TO_YOUR_DEMO_GIF])
-*A brief walkthrough of the application's core functionality.*
-
----
-
 ## 📜 Table of Contents
 * [Problem Statement](#-problem-statement)
 * [Features](#-features)
